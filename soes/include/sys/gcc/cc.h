@@ -21,6 +21,8 @@ extern "C"
    #include <machine/endian.h>   
 #endif
 
+#include "xprintf.h"
+
 #ifndef MIN
 #define MIN(a,b) (((a)<(b))?(a):(b))
 #endif
@@ -78,7 +80,7 @@ extern "C"
 #define DPRINT(...) printf ("soes: "__VA_ARGS__)
 #endif
 #else
-#define DPRINT(...)
+#define DPRINT(...) xprintf ("soes: "__VA_ARGS__)
 #endif
 
 #ifdef __cplusplus
