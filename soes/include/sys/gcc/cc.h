@@ -14,11 +14,12 @@ extern "C"
 #include <assert.h>
 #include <stdint.h>
 #include <stddef.h>
+#include <inttypes.h>
 #include <sys/param.h>
 #ifdef __linux__
    #include <endian.h>
 #else
-   #include <machine/endian.h>   
+   #include <machine/endian.h>
 #endif
 
 #include "xprintf.h"
@@ -34,13 +35,15 @@ extern "C"
 #define CC_PACKED_BEGIN
 #define CC_PACKED_END
 #define CC_PACKED       __attribute__((packed))
+#define CC_ALIGNED(n)   __attribute__((aligned (n)))
 
 #ifdef __rtk__
+#include <kern/assert.h>
 #define CC_ASSERT(exp) ASSERT (exp)
 #else
 #define CC_ASSERT(exp) assert (exp)
 #endif
-#define CC_STATIC_ASSERT(exp) _Static_assert (exp, "")
+#define CC_STATIC_ASSERT(exp, msg) _Static_assert (exp, msg)
 
 #define CC_DEPRECATED   __attribute__((deprecated))
 
@@ -55,11 +58,11 @@ extern "C"
 #define CC_ATOMIC_OR(var,val)    __atomic_or_fetch(&var,val,__ATOMIC_SEQ_CST)
 
 #if BYTE_ORDER == BIG_ENDIAN
-#define htoes(x) CC_SWAP16 (x)
-#define htoel(x) CC_SWAP32 (x)
+#define htoes(x) CC_SWAP16 ((uint16_t)(x))
+#define htoel(x) CC_SWAP32 ((uint32_t)(x))
 #else
-#define htoes(x) (x)
-#define htoel(x) (x)
+#define htoes(x) ((uint16_t)(x))
+#define htoel(x) ((uint32_t)(x))
 #endif
 
 #define etohs(x) htoes (x)
@@ -73,7 +76,7 @@ extern "C"
 
 #ifdef ESC_DEBUG
 #ifdef __rtk__
-#include <rprint.h>
+#include <kern/rprint.h>
 #define DPRINT(...) rprintp ("soes: "__VA_ARGS__)
 #else
 #include <stdio.h>
