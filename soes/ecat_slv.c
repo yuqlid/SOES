@@ -384,5 +384,5 @@ void ecat_slv_init (esc_cfg_t * config)
    ESC_stopinput ();
    ESC_stopoutput ();
    /* Init Object Dictionary default values */
-   
+   COE_initDefaultValues ();
 }
