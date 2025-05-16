@@ -11,6 +11,10 @@
 #ifndef __esc_eep__
 #define __esc_eep__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <cc.h>
 #include "esc.h"
 
@@ -149,5 +153,9 @@ void EEP_set_reload_function_pointer (void (*reload_ptr)(eep_stat_t *stat));
 void EEP_init (void);
 int8_t EEP_read (uint32_t addr, uint8_t *data, uint16_t size);
 int8_t EEP_write (uint32_t addr, uint8_t *data, uint16_t size);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

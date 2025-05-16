@@ -6,6 +6,10 @@
 #ifndef __options__
 #define __options__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* User-defined options, Options defined here will override default values */
 #include "ecat_options.h"
 
@@ -147,5 +151,8 @@
 #define MAX_TXPDO_SIZE   128
 #endif
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __options__ */

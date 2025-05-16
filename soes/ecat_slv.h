@@ -6,6 +6,10 @@
 #ifndef __ECAT_SLV_H__
 #define __ECAT_SLV_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "options.h"
 #include "esc.h"
 
@@ -65,5 +69,9 @@ void ecat_slv (void);
  * @param[in]   config     = User input how to configure the stack
  */
 void ecat_slv_init (esc_cfg_t * config);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __ECAT_SLV_H__ */

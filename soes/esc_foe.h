@@ -11,6 +11,10 @@
 #ifndef __esc_foe__
 #define __esc_foe__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <cc.h>
 
 /** Maximum number of characters allowed in a file name. */
@@ -73,5 +77,9 @@ typedef struct CC_PACKED
 void FOE_config (foe_cfg_t * cfg);
 void FOE_init (void);
 void ESC_foeprocess (void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

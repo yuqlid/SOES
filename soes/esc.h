@@ -11,6 +11,10 @@
 #ifndef __esc__
 #define __esc__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdbool.h>
 #include <cc.h>
 #include <esc_coe.h>
@@ -770,5 +774,8 @@ extern _SMmap SMmap3[];
 #define CC_ATOMIC_OR(var,val)    (var |= val)
 #endif
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif

@@ -11,6 +11,10 @@
 #ifndef __esc_coe__
 #define __esc_coe__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <cc.h>
 
 
@@ -134,5 +138,9 @@ extern uint32_t ESC_upload_pre_objecthandler (uint16_t index,
       uint16_t flags);
 extern uint32_t ESC_upload_post_objecthandler (uint16_t index, uint8_t subindex, uint16_t flags);
 extern const _objectlist SDOobjects[];
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

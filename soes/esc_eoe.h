@@ -11,6 +11,10 @@
 #ifndef __esc_eoe__
 #define __esc_eoe__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <cc.h>
 
 typedef struct eoe_pbuf
@@ -64,5 +68,9 @@ void EOE_config (eoe_cfg_t * cfg);
 void EOE_init (void);
 void ESC_eoeprocess (void);
 void ESC_eoeprocess_tx (void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
